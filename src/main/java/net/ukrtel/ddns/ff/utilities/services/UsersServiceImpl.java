@@ -33,6 +33,11 @@ public class UsersServiceImpl implements UsersService, UserDetailsService {
     }
 
     @Override
+    public User save(User user) {
+        return repository.save(user);
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = repository.findByUsername(username);
 
