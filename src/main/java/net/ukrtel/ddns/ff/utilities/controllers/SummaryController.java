@@ -10,21 +10,21 @@ import org.springframework.web.bind.annotation.RestController;
 import java.security.Principal;
 
 @RestController
-public class MainController {
+@RequestMapping("/")
+public class SummaryController {
     private UsersService usersService;
 
     @Autowired
-    public MainController(UsersService usersService) {
+    public SummaryController(UsersService usersService) {
         this.usersService = usersService;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public User main(Principal principal) {
         User user = new User();
         if (principal != null) {
             user = usersService.getByUsername(principal.getName());
         }
-
         return user;
     }
 }
