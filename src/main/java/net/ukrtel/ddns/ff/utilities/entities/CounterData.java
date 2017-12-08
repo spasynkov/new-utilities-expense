@@ -13,7 +13,7 @@ public class CounterData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @ManyToOne
-    @JoinColumn(name = "counter_id", foreignKey = @ForeignKey(name = "COUNTER_ID_FK"))
+    @JoinColumn(name = "counter_id")
     private Counter counter;
     private int counterData;
     private Date counterReadingDate;
